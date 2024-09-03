@@ -1,5 +1,4 @@
 class Openai::ChatsController < ApplicationController
-  require "openai"
   def show
 
   end
@@ -13,7 +12,7 @@ class Openai::ChatsController < ApplicationController
         parameters: {
           model: "gpt-3.5-turbo",
           messages: [
-            { role: "system", content: "あなたは3才の子供です。対話相手の言葉に対し、「〇〇ってなに？」「どうして〇〇なの？」のように質問をしてください。" },
+            { role: "system", content: "あなたは3才の子供です。対話相手の言葉に対し質問をしてください。次の例文を参考にしてください。（例1）〇〇ってなに？（例2）どうして〇〇なの？" },
             { role: "user", content: @user_input }
           ],
           max_tokens: 50,
