@@ -1,4 +1,5 @@
 class Openai::ChatsController < ApplicationController
+  require "openai"
   def show
 
   end
