@@ -28,8 +28,19 @@
 </div>
 
 <div class="mt-2 text-center">
-  <%= link_to '終わりにする', '#', class:"btn" %>
+  <button class="btn" onclick="my_modal_2.showModal()">終わりにする</button>
 </div>
+<dialog id="my_modal_2" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">この会話のタイトルをつけてね</h3>
+    <form>
+      
+    </form>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
 
 <script>
   const button_post = document.getElementById('button_post');
