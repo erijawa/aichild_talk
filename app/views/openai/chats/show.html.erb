@@ -3,7 +3,7 @@
 </div>
 <dialog id="my_modal_1" class="modal">
   <div class="modal-box">
-    <h3 class="text-lg font-bold py-4">会話のはじめ方</h3>
+    <h3 class="text-lg font-bold py-4">はじめ方</h3>
     <p class="py-2">理解度を確認したい話題や単語を入力してね。</p>
     <p class="py-2">特になければ世話話でもいいよ。</p>
     <p class="py-2">（例）「HTTPメソッド」「今日は晴れだね」</p>
@@ -22,9 +22,13 @@
     </div>
     <form id="text_form" class="flex justify-center px-2 py-1 border-t border-gray-200 bg-white">
       <input type="text" placeholder="入力してください" id="user_input" class="input input-bordered w-full max-w-xs">
-      <button id="button_post" class="btn btn-primary">送信</button>
+      <button id="button_post" class="btn btn-primary mx-2">送信</button>
     </form>
   </div>
+</div>
+
+<div class="mt-2 text-center">
+  <%= link_to '終わりにする', '#', class:"btn" %>
 </div>
 
 <script>
