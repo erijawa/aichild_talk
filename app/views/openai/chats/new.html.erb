@@ -28,18 +28,36 @@
 </div>
 
 <div class="mt-2 text-center">
-  <button class="btn" onclick="my_modal_2.showModal()">終わりにする</button>
+  <button class="btn" onclick="my_modal_2.showModal()">会話履歴を保存して終わりにする</button>
 </div>
 <dialog id="my_modal_2" class="modal">
-  <div class="modal-box">
-    <h3 class="text-lg font-bold">この会話のタイトルをつけてね</h3>
-    <form>
-      
-    </form>
+  <div class="modal-box text-center">
+    <h3 class="text-lg font-bold my-4">この会話のタイトルをつけてね</h3>
+    <%= form_with model: @chat do |f| %>
+      <div class="mb-3">
+
+          <%= f.text_field :title, class: "input input-bordered input-primary w-full max-w-xs" %>
+      </div>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
   </div>
   <form method="dialog" class="modal-backdrop">
     <button>close</button>
   </form>
+</dialog>
+
+<div class="mt-2 text-center">
+  <button class="btn" onclick="my_modal_3.showModal()">会話履歴を保存せず終わりにする</button>
+</div>
+<dialog id="my_modal_3" class="modal">
+  <div class="modal-box text-center">
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+    <h3 class="text-lg font-bold">会話履歴は保存されません。よろしいですか？</h3>
+    <p class="py-4">会話に戻る場合は右上のxを押してね</p>
+    <%= link_to '終わりにする', root_path, class: "btn btn-primary" %>
+  </div>
 </dialog>
 
 <script>

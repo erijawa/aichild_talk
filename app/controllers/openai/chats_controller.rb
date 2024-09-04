@@ -3,9 +3,14 @@ class Openai::ChatsController < ApplicationController
 
   end
 
-  def generate_text
-    @user_input = params[:user_input]
+  def new
 
+  end
+
+  def generate_text
+    @histories = []
+    @user_input = params[:user_input]
+    @histories << @user_input
     if @user_input.present?
       client = OpenAI::Client.new
       response = client.chat(
@@ -20,7 +25,12 @@ class Openai::ChatsController < ApplicationController
         }
       )
       @generated_text = response.dig("choices", 0, "message", "content")
+      @histories << @generated_text
       render json:{text: @generated_text}
     end
+  end
+
+  def create
+    
   end
 end
