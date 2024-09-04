@@ -1,3 +1,21 @@
+<div class="mt-2 text-center">
+  <button class="btn btn-secondary" onclick="my_modal_1.showModal()">会話のはじめ方</button>
+</div>
+<dialog id="my_modal_1" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold py-4">会話のはじめ方</h3>
+    <p class="py-2">理解度を確認したい話題や単語を入力してね。</p>
+    <p class="py-2">特になければ世話話でもいいよ。</p>
+    <p class="py-2">（例）「HTTPメソッド」「今日は晴れだね」</p>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
 <div class="flex flex-col items-center justify-center py-6 w-full h-full">
   <div class="max-w-4xl w-full space-y-8 h-full">
     <div id="conversation" class="space-y-4 p-4 rounded overflow-y-auto">
