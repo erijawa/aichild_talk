@@ -33,12 +33,12 @@
 <dialog id="my_modal_2" class="modal">
   <div class="modal-box text-center">
     <h3 class="text-lg font-bold my-4">この会話のタイトルをつけてね</h3>
-    <%= form_with model: @chat do |f| %>
+    <%= form_with model: @chat, url: openai_chats_path do |f| %>
       <div class="mb-3">
-
           <%= f.text_field :title, class: "input input-bordered input-primary w-full max-w-xs" %>
       </div>
-      <%= f.submit class: "btn btn-primary" %>
+      <%= f.hidden_field :body, value: "#{@histories}" %>
+      <%= f.submit "保存", class: "btn btn-primary" %>
     <% end %>
   </div>
   <form method="dialog" class="modal-backdrop">
