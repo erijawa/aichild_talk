@@ -1,0 +1,96 @@
+<div class="mt-2 text-center">
+  <button class="btn btn-secondary" onclick="my_modal_1.showModal()">会話のはじめ方</button>
+</div>
+<dialog id="my_modal_1" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold py-4">はじめ方</h3>
+    <p class="py-2">理解度を確認したい話題や単語を入力してね。</p>
+    <p class="py-2">特になければ世話話でもいいよ。</p>
+    <p class="py-2">（例）「HTTPメソッド」「今日は晴れだね」</p>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+<div class="flex flex-col items-center justify-center py-6 w-full h-full">
+  <div class="max-w-4xl w-full space-y-8 h-full">
+    <div id="conversation" class="space-y-4 p-4 rounded overflow-y-auto">
+    </div>
+    <form id="text_form" class="flex justify-center px-2 py-1 border-t border-gray-200 bg-white">
+      <input type="text" placeholder="入力してください" id="user_input" class="input input-bordered w-full max-w-xs">
+      <button id="button_post" class="btn btn-primary mx-2">送信</button>
+    </form>
+  </div>
+</div>
+
+
+
+<div class="mt-2 text-center">
+  <button class="btn" onclick="my_modal_3.showModal()">終わりにする</button>
+</div>
+<dialog id="my_modal_3" class="modal">
+  <div class="modal-box text-center">
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+    <h3 class="text-lg font-bold">会話履歴は保存されません。よろしいですか？</h3>
+    <p class="py-4">会話に戻る場合は右上のxを押してね</p>
+    <%= link_to '終わりにする', root_path, class: "btn btn-primary" %>
+  </div>
+</dialog>
+
+<script>
+const button_post = document.getElementById('button_post');
+button_post.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const formText = document.querySelector("#user_input");
+  if (formText.value.trim() === "") {
+    return;
+  }
+
+  const url = "<%= openai_chats_path('json') %>?user_input=" + formText.value;
+  const postOptions = {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    method: "GET"
+  };
+
+  fetch(url, postOptions)
+    .then(response => response.json())
+    .then(item => {
+      const list = document.getElementById("conversation");
+
+      const inputHTML = `
+        <div class="text-right flex items-end justify-end space-x-2">
+          <div class="chat-bubble inline-block bg-blue-100 px-4 py-2 rounded-lg max-w-3/4 break-words">
+            <span>${formText.value}</span>
+          </div>
+          <div class="icon-container w-8 h-8 flex-shrink-0">
+            <i class="fa-solid fa-user" style="font-size:30px"></i>
+          </div>
+        </div>`;
+      list.insertAdjacentHTML("beforeend", inputHTML);
+
+      const responseHTML = `
+        <div class="text-left flex items-start space-x-2">
+          <div class="icon-container w-8 h-8 flex-shrink-0">
+            <i class="fa-solid fa-child" style="font-size:40px"></i>
+          </div>
+          <div class="chat-bubble inline-block bg-gray-100 px-4 py-2 rounded-lg max-w-3/4 break-words">
+            <span>${item.text}</span>
+          </div>
+        </div>`;
+      list.insertAdjacentHTML("beforeend", responseHTML);
+      formText.value = "";
+      list.scrollTop = list.scrollHeight;
+    })
+    .catch(error => console.error('Error:', error));
+});
+</script>

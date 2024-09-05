@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   root "home#index"
   namespace :openai do
     get 'chats/', to: 'chats#generate_text'
-    resources :chats, only: %i[new create show]
-    # get 'chats/new', to: 'chats#new'
+    get 'chats/show', to: 'chats#show'
+    # resources :chats, only: %i[new create show]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -3,9 +3,9 @@ class Openai::ChatsController < ApplicationController
 
   end
 
-  def new
-    @chat = Chat.new
-  end
+  # def new
+  #   @chat = Chat.new
+  # end
 
   def generate_text
     @histories = []
@@ -30,15 +30,15 @@ class Openai::ChatsController < ApplicationController
     end
   end
 
-  def create
-    @chat = Chat.new(chat_params)
-    if @chat.save
-      redirect_to root_path
-    else
-      flash.now[:danger] = "保存できませんでした"
-      render :new, status: :unprocessable_entity
-    end
-  end
+  # def create
+  #   @chat = Chat.new(chat_params)
+  #   if @chat.save
+  #     redirect_to root_path
+  #   else
+  #     flash.now[:danger] = "保存できませんでした"
+  #     render :new, status: :unprocessable_entity
+  #   end
+  # end
 
   private
 
