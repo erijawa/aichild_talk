@@ -59,4 +59,7 @@ group :test do
 end
 
 gem 'byebug'
+
 gem 'ruby-openai'
+
+gem 'meta-tags'
