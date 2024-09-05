@@ -4,8 +4,8 @@
 <dialog id="my_modal_1" class="modal">
   <div class="modal-box">
     <h3 class="text-lg font-bold py-4">はじめ方</h3>
-    <p class="py-2">理解度を確認したい話題や単語を入力してね。</p>
-    <p class="py-2">特になければ世話話でもいいよ。</p>
+    <p class="py-2">理解度を確認したい話題や単語を入力してね。<br>
+    特になければ世話話でもいいよ。</p>
     <p class="py-2">（例）「HTTPメソッド」「今日は晴れだね」</p>
     <div class="modal-action">
       <form method="dialog">
@@ -38,7 +38,8 @@
       <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
     </form>
     <h3 class="text-lg font-bold">会話履歴は保存されません。よろしいですか？</h3>
-    <p class="py-4">会話に戻る場合は右上のxを押してね</p>
+    <p class="py-4">会話に戻る場合は右上のxを押してね。</br>
+    残したい回答はコピペなどで保存をお願いします。</p>
     <%= link_to '終わりにする', root_path, class: "btn btn-primary" %>
   </div>
 </dialog>
