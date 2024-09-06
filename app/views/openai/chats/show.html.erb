@@ -47,6 +47,19 @@
 </dialog>
 
 <script>
+const textarea = document.getElementById("user_input")
+const maxLength = textarea.getAttribute("maxlength")
+textarea.addEventListener("input", () => {
+  const currentLength = textarea.value.length
+
+  if (currentLength > maxLength) {
+    textarea.style.color = "red"
+  } else {
+    textarea.style.removeProperty("color")
+  }
+})
+
+
 const button_for_post = document.getElementById('button_for_post');
 button_for_post.addEventListener('click', function(event) {
   event.preventDefault();
