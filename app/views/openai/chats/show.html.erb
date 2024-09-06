@@ -49,15 +49,15 @@
 </div>
 
 <script>
-const textareaField = document.getElementById("user_input")
-const maxLength = textareaField.getAttribute("maxlength")
-textareaField.addEventListener("input", () => {
-  const currentLength = textareaField.value.length
+const fieldForTextarea = document.getElementById("user_input")
+const maxLength = fieldForTextarea.getAttribute("maxlength")
+fieldForTextarea.addEventListener("input", () => {
+  const currentLength = fieldForTextarea.value.length
 
   if (currentLength > maxLength) {
-    textareaField.style.color = "red"
+    fieldForTextarea.style.color = "red"
   } else {
-    textareaField.style.removeProperty("color")
+    fieldForTextarea.style.removeProperty("color")
   }
 })
 
