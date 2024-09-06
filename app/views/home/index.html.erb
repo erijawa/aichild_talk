@@ -1,12 +1,45 @@
-<div class="hero bg-base-200 min-h-screen">
-  <div class="hero-content text-center">
+<div
+  class="hero bg-base-200 min-h-screen"
+  style="background-image: url(<%=asset_path 'top_img2.png' %>); background-size: contain; background-position: center;">
+  <div class="hero-overlay bg-base-200 bg-opacity-60"></div>
+  <div class="hero-content text-neutral-content text-center">
     <div class="max-w-md">
-      <h1 class="text-5xl font-bold">ちびっ子トーク</h1>
-      <p class="py-6">
-        あなたは幾度も畳みかけられる「なんで？」に答えられますか？</br>
-        3歳児との会話を通じて、理解度を確認しましょう！
+      <h1 class="mb-5 text-5xl font-bold">ちびっ子トーク</h1>
+      <p class="mb-5">
+      あなたは幾度も畳みかけられる「なんで？」に答えられますか？</br>
+      3歳児との会話を通じて、理解度を確認しましょう！
       </p>
-      <%= link_to "会話をはじめる", openai_chats_show_path, class: "btn btn-primary" %>
+      <%= link_to "会話をはじめる", openai_chats_show_path, class: "btn btn-secondary" %>
+
+      <button class="btn btn-neutral" onclick="my_modal_5.showModal()">使い方</button>
+      <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+          <h3 class="text-lg font-bold py-4">ちびっ子トークとは</h3>
+          <p class="py-4">AI扮する三歳児とお話しすることができるアプリです。</br>
+            三歳児はどんなことにも「〇〇ってなに？」「なんで〇〇なの？」と畳み掛けてきます。</br>
+            当たり前と思っていても、なんで？なんで？と掘り下げられると意外とわかっていないことは多いものです。</br>
+            アプリでの会話を通して、思考を深めてみませんか？
+          </p>
+          <h3 class="text-lg font-bold py-4">アプリの使い方のご提案</h3>
+          <ul class="list-disc text-left">
+            <li class="py-2">勉強した内容の理解度確認<br>
+            （会話の開始例）「HTTPメソッド」「今日はajaxについて勉強したよ」
+            </li>
+            <li class="py-2">自己分析<br>
+            （会話の開始例）「私はコツコツと物事を進めるのが得意です」
+            </li>
+            <li class="py-2">三歳児との会話を楽しむ<br>
+            （会話の開始例）「今日は晴れだね」
+            </li>
+          </ul>
+          <div class="modal-action">
+            <form method="dialog">
+              <!-- if there is a button in form, it will close the modal -->
+              <button class="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
     </div>
   </div>
 </div>
