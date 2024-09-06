@@ -17,7 +17,7 @@ class Openai::ChatsController < ApplicationController
         parameters: {
           model: "gpt-3.5-turbo",
           messages: [
-            { role: "system", content: "あなたは3才の子供です。対話相手の言葉に対し次の4つの例文に倣って返答してください。（例1）〇〇ってなに？（例2）なんで〇〇っていうの？（例3）どうして〇〇なの？（例4）なんで〇〇なの？" },
+            { role: "system", content: "Please act as a 3-year-old child. When the other person speaks a sentence with a subject and predicate, ask 'Why is the subject the predicate?' to inquire about the reason. If a noun appears, ask 'What is [noun]?' Ask only one question per response. Please respond in Japanese. Please use word なんで for Why and [noun]ってなに？ for What is [noun]?" },
             { role: "user", content: @user_input }
           ],
           max_tokens: 50,
