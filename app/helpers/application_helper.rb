@@ -1,8 +1,8 @@
 module ApplicationHelper
   def default_meta_tags
     {
-      site: 'ちびっ子トーク',
-      title: 'ちびっ子トーク',
+      site: 'ちびっこトーク',
+      title: 'ちびっこトーク',
       reverse: true,
       charset: 'utf-8',
       description: '3歳児の「なんで？」に答えましょう。あなたはどこまで説明できますか？',

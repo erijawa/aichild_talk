@@ -10,4 +10,9 @@ module.exports = {
     darkTheme: false,
     themes: ["pastel"],
   },
+  theme: {
+    fontFamily: {
+      'Darumadrop': ['"Darumadrop One"', 'system-ui'],
+    }
+  }
 }

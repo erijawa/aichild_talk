@@ -1,24 +1,49 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サービス名 : ちびっこトーク
+[![Image from Gyazo](https://i.gyazo.com/2a4c972aa5a3bac36a86d278b5d32081.png)](https://gyazo.com/2a4c972aa5a3bac36a86d278b5d32081)
 
-Things you may want to cover:
+[**ちびっこトーク**](https://aichild-talk-2ce903ce7ec6.herokuapp.com/)
 
-* Ruby version
 
-* System dependencies
+## サービス概要
+『ちびっこトーク』は、AI扮する三歳児とお話しすることができるアプリです。
+三歳児はどんなことにも「〇〇ってなに？」「なんで〇〇なの？」と畳み掛けてきます。
+当たり前と思っていても、なんで？なんで？と掘り下げられると意外とわかっていないことは多いものです。
+アプリでの会話を通して、思考を深めてみませんか？
 
-* Configuration
 
-* Database creation
+## このサービスを作った理由
+私自身がちょうど三歳の子供を育てており、日頃の会話の中での「なんで？」の多さに圧倒されていたことがきっかけです。
+あらゆることに「それってなに？」「なんで〇〇なの？」、さらに答えても答えても「なんで？」と聞いてきます。最後には「なんでだろうね…」で終わってしまうことも多いです。
+自分が当たり前と思っていることが実は盲目的に信じているだけだったり、わかっているつもりでも「なぜ」を繰り返すとわからないことだらけだったり。
+そんな、三歳児とのやりとりを通して得られる気づきをみなさんにも経験していただければと思い、このアプリを作成しました。
 
-* Database initialization
 
-* How to run the test suite
+## サービスへの想い
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+## 機能
+open-aiのAPIを用いた三歳児とのチャット
+- 対話相手に対し「なんで〇〇なの？」「〇〇ってなに？」と質問を重ねるようAIのプロンプトを調整しました
+- JavaScriptの非同期通信を用いることで、待ち時間なくチャットが更新されスムーズに会話が可能です
+- 入力欄の文字数がオーバーした際は、入力値が赤くなることでエラーに気づきやすいよう配慮しました
+
+
+
+
+## 使用技術
+| 技術           | 詳細                                                      | 
+| -------------- | --------------------------------------------------------- | 
+| フロントエンド | HTML, CSS, JavaScript, Tailwind CSS 3.4.10, DaisyUI 4.12.10 | 
+| バックエンド   | Ruby 3.2.3, Rails 7.2.1                              | 
+| データベース   |                                                           | 
+| 認証           |                                                           | 
+| デプロイ       | Heroku                                                  | 
+| バージョン管理 | Git, GitHub                                               | 
+| API            |  openAI                                                         | 
+| 開発環境       | Docker                                                    | 
+ 
+
+
