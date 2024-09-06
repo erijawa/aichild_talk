@@ -1,50 +1,52 @@
-<div class="mt-2 text-center">
-  <button class="btn btn-secondary" onclick="my_modal_1.showModal()">会話のはじめ方</button>
-</div>
-<dialog id="my_modal_1" class="modal">
-  <div class="modal-box">
-    <h3 class="text-lg font-bold py-4">はじめ方</h3>
-    <p class="py-2">理解度を確認したい話題や単語を入力してね。<br>
-    特になければ世話話でもいいよ。</p>
-    <p class="py-2">（例）「HTTPメソッド」「今日は晴れだね」</p>
-    <div class="modal-action">
-      <form method="dialog">
-        <!-- if there is a button in form, it will close the modal -->
-        <button class="btn">Close</button>
+<div class="flex-grow">
+  <div class="mt-2 text-center">
+    <button class="btn btn-secondary" onclick="my_modal_1.showModal()">会話のはじめ方</button>
+  </div>
+  <dialog id="my_modal_1" class="modal">
+    <div class="modal-box">
+      <h3 class="text-lg font-bold py-4">はじめ方</h3>
+      <p class="py-2">理解度を確認したい話題や単語を入力してね。<br>
+      特になければ世話話でもいいよ。</p>
+      <p class="py-2">（例）「HTTPメソッド」「今日は晴れだね」</p>
+      <div class="modal-action">
+        <form method="dialog">
+          <!-- if there is a button in form, it will close the modal -->
+          <button class="btn">Close</button>
+        </form>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="flex flex-col items-center justify-center py-6 w-full h-full">
+    <div class="max-w-4xl w-full space-y-8 h-full">
+      <div id="conversation" class="space-y-4 p-4 rounded overflow-y-auto">
+      </div>
+      <form id="text_form" class="flex justify-center px-2 py-1 border-t border-gray-200 bg-white">
+        <textarea maxlength="125" placeholder="125文字以内で入力してください" id="user_input" class="textarea textarea-bordered textarea-md w-full max-w-xs"></textarea>
+        <button id="button_for_post" class="btn btn-primary mx-2">送信</button>
       </form>
     </div>
   </div>
-</dialog>
 
-<div class="flex flex-col items-center justify-center py-6 w-full h-full">
-  <div class="max-w-4xl w-full space-y-8 h-full">
-    <div id="conversation" class="space-y-4 p-4 rounded overflow-y-auto">
+  <div class="mt-2 text-center">
+    <%= link_to 'Xでアプリをシェアする', "https://twitter.com/share?url=https://aichild-talk-2ce903ce7ec6.herokuapp.com/&text=3歳児の「なんで？」に答えましょう。あなたはどこまで説明できますか？&hashtags=RUNTEQ祭", title: 'Twitter', target: '_blank', class: "btn" %>
+  </div>
+
+  <div class="my-2 text-center">
+    <button class="btn" onclick="my_modal_3.showModal()">終わりにする</button>
+  </div>
+  <dialog id="my_modal_3" class="modal">
+    <div class="modal-box text-center">
+      <form method="dialog">
+        <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+      </form>
+      <h3 class="text-lg font-bold">会話履歴は保存されません。よろしいですか？</h3>
+      <p class="py-4">会話に戻る場合は右上のxを押してね。</br>
+      残したい回答はコピペなどで保存をお願いします。</p>
+      <%= link_to '終わりにする', root_path, class: "btn btn-primary" %>
     </div>
-    <form id="text_form" class="flex justify-center px-2 py-1 border-t border-gray-200 bg-white">
-      <textarea maxlength="125" placeholder="125文字以内で入力してください" id="user_input" class="textarea textarea-bordered textarea-md w-full max-w-xs"></textarea>
-      <button id="button_for_post" class="btn btn-primary mx-2">送信</button>
-    </form>
-  </div>
+  </dialog>
 </div>
-
-<div class="mt-2 text-center">
-  <%= link_to 'Xでアプリをシェアする', "https://twitter.com/share?url=https://aichild-talk-2ce903ce7ec6.herokuapp.com/&text=3歳児の「なんで？」に答えましょう。あなたはどこまで説明できますか？&hashtags=RUNTEQ祭", title: 'Twitter', target: '_blank', class: "btn" %>
-</div>
-
-<div class="mt-2 text-center">
-  <button class="btn" onclick="my_modal_3.showModal()">終わりにする</button>
-</div>
-<dialog id="my_modal_3" class="modal">
-  <div class="modal-box text-center">
-    <form method="dialog">
-      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-    </form>
-    <h3 class="text-lg font-bold">会話履歴は保存されません。よろしいですか？</h3>
-    <p class="py-4">会話に戻る場合は右上のxを押してね。</br>
-    残したい回答はコピペなどで保存をお願いします。</p>
-    <%= link_to '終わりにする', root_path, class: "btn btn-primary" %>
-  </div>
-</dialog>
 
 <script>
 const textareaField = document.getElementById("user_input")
